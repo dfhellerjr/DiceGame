@@ -1,28 +1,47 @@
-// Initialize global variables
+// Initialize variables
 var randomNumber1 = 0;
 var randomNumber2 = 0;
 var btn1Rolled = false;
 var btn2Rolled = false;
 
-// Player 1 (double roll)
+// Player 1 (1 roll = 4 rotations)
 function rollDice1() 
 {
   if(btn1Rolled === false)
   {
-    const dice = [...document.querySelectorAll(".even-roll")];   
+    const dice = [...document.querySelectorAll(".even-roll")];  
     dice.forEach(die => 
-    {  
-        die.dataset.roll = getRandomNumber(1, 6);
+    {   
+      die.dataset.roll = getRandomNumber(1, 6);
     });
-    // Allow time for 1st roll to execute 
-    setTimeout(() => {rollDice1a();}, 400);
-  }
+    // Allow time for 1st rotation to execute
+    setTimeout(() => {rollDice1a();}, 400);  }
   else 
   {
     alert("Player 1 has already rolled");
   }
 }
 function rollDice1a() 
+{
+    const dice = [...document.querySelectorAll(".even-roll")];  
+    dice.forEach(die => 
+    {   
+      die.dataset.roll = getRandomNumber(1, 6);
+    });
+    // Allow time for 2nd rotation to execute
+    setTimeout(() => {rollDice1b();}, 400);  
+}
+function rollDice1b() 
+{
+    const dice = [...document.querySelectorAll(".even-roll")];  
+    dice.forEach(die => 
+    {   
+      die.dataset.roll = getRandomNumber(1, 6);
+    });
+    // Allow time for 3rd rotation to execute
+    setTimeout(() => {rollDice1c();}, 400);  
+}
+function rollDice1c() 
 { 
   const dice = [...document.querySelectorAll(".even-roll")];  
   dice.forEach(die => 
@@ -37,7 +56,7 @@ function rollDice1a()
   }
 }
 
-// Player 2 (double roll)
+// Player 2 (1 roll = 4 rotations)
 function rollDice2() 
 {
   if(btn2Rolled === false)
@@ -47,7 +66,7 @@ function rollDice2()
     {   
       die.dataset.roll = getRandomNumber(1, 6);
     });
-    // Allow time for 1st roll to execute
+    // Allow time for 1st rotation to execute
     setTimeout(() => {rollDice2a();}, 400);
   }
   else 
@@ -56,6 +75,26 @@ function rollDice2()
   }
 }
 function rollDice2a() 
+{
+    const dice = [...document.querySelectorAll(".odd-roll")];  
+    dice.forEach(die => 
+    {   
+      die.dataset.roll = getRandomNumber(1, 6);
+    });
+    // Allow time for 2nd rotation to execute
+    setTimeout(() => {rollDice2b();}, 400);  
+}
+function rollDice2b() 
+{
+    const dice = [...document.querySelectorAll(".odd-roll")];  
+    dice.forEach(die => 
+    {   
+      die.dataset.roll = getRandomNumber(1, 6);
+    });
+    // Allow time for 3rd rotation to execute
+    setTimeout(() => {rollDice2c();}, 400);  
+}
+function rollDice2c() 
 { 
   const dice = [...document.querySelectorAll(".odd-roll")];  
   dice.forEach(die => 
